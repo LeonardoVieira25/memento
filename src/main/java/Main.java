@@ -1,9 +1,23 @@
-import aprovacao.Aluno;
-
 public class Main {
     public static void main(String[] args) {
-        Aluno aluno = new Aluno();
-        aluno.setFrequencia(10);
-        System.out.println("Frequência: " + aluno.getFrequencia());
+        Funcionario funcionario = new Funcionario();
+        funcionario.setEstado(FuncionarioEstadoAdmitido.getInstance());
+        System.out.println("Estado atual: " + funcionario.getEstado());
+
+        funcionario.setEstado(FuncionarioEstadoAtivo.getInstance());
+        System.out.println("Estado atual: " + funcionario.getEstado());
+
+        funcionario.setEstado(FuncionarioEstadoTransferido.getInstance());
+        System.out.println("Estado atual: " + funcionario.getEstado());
+
+        funcionario.setEstado(FuncionarioEstadoAposentado.getInstance());
+        System.out.println("Estado atual: " + funcionario.getEstado());
+
+
+        System.out.println("\nRestaurando para o segundo estado (Ativo):");
+        funcionario.restauraEstado(1);
+        System.out.println("Estado atual: " + funcionario.getEstado());
+
+
     }
 }
